@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="244c5163-a3ee-4d60-924c-dea5621bb7c2" name="jumbo_host" url="http://198.187.29.99">
+        <fileTransfer host="198.187.29.99" port="21" rootFolder="/public_html/new">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
