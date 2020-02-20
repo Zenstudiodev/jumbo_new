@@ -1,7 +1,6 @@
 ###################
-Jobs Guatemala
+Jumbo
 ###################
 
-Tablero de trabajos para guatemala
-una forma sencilla y practica de encontrar tu proximo trabajo o tu proximo colaborador
+Integracion de sistema de inventarios a sitio web jumbo
 

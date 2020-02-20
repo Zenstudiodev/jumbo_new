@@ -12,11 +12,13 @@ class Home extends Base_Controller
 	function __construct()
 	{
 		parent::__construct();
-		// Modelos
+        // Modelos
+        $this->load->model('Productos_model');
 	}
 
 	function index()
 	{
-		echo $this->templates->render('public/home');
+        $data['productos'] = $this->Productos_model->get_productos();
+	    echo $this->templates->render('public/home', $data);
 	}
 }
