@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'gothic';
+    src: url('../fonts/gothic.eot');
+    src: local('gothic'), url('../fonts/gothic.woff') format('woff'), url('../fonts/gothic.ttf') format('truetype');
+}
+
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_9785">Text with this font applied</p> */
+.gothic {
+    font-family: 'gothic' !important;
+}
+
+html, body {
+    font-family: 'gothic' !important;
+}
+
+/*Main menu*/
+#main-nav {
+    color: #003d8e;
+    margin: 5vh 0;
+}
+
+#main_nav ul {
+    list-style: none;
+}
+
+#main_nav li {
+    float: left;
+    margin: 0px 8px;
+}
+
+#main-nav a {
+    color: #003d8e;
+    font-size: 1.4rem;
+
+}
+
+#main-nav a:hover {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#productos_recomendados {
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    margin: 4vh 0;
+}
+
+#productos_recomendados small {
+    font-size: 1rem;
+}
+
+/*Catalogos*/
+#catalogos_section {
+    margin: 5vh 0;
+}
+
+div#fondo_footer {
+    background: #003d8e;
+    padding: 2vh;
+    color: #fff;
+}
+
+#copy_row {
+    height: 103px;
+    color: #003d8e;
+}
+
+
+/*Boostrap override*/
+.carousel-indicators {
+    bottom: -20px;
+}
+.carousel-indicators .active {
+    background-color: #003d8e;
+}
+.carousel-indicators li {
+    max-width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: solid 1px;
+    border-color: #003d8e;
+}

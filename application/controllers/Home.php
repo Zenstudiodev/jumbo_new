@@ -21,4 +21,8 @@ class Home extends Base_Controller
         $data['productos'] = $this->Productos_model->get_productos();
 	    echo $this->templates->render('public/home', $data);
 	}
+	function homed (){
+        $data['home_d'] = '';
+        echo $this->templates->render('public/homed', $data);
+    }
 }
