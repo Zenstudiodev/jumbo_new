@@ -1,11 +1,21 @@
-RewriteEngine on
-
 <IfModule mod_rewrite.c>
     RewriteEngine on
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+    RewriteRule ^(.*)$ index.php/$1 [L]
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+
+RewriteCond %{HTTP_HOST} ^corporacionjumbo\.com [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://corporacionjumbo.com/new/$1 [R=301,L]
+
+
 </IfModule>
 
-RewriteCond %{HTTPS} on
-RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# Use PHPstable as default
+AddHandler application/x-httpd-php-stable .php
+<IfModule mod_suphp.c>
+    suPHP_ConfigPath /opt/phpstable/lib
+</IfModule>

@@ -14,9 +14,13 @@ html, body {
 }
 
 /*Main menu*/
+#logo_main{
+
+}
+
 #main-nav {
     color: #003d8e;
-    margin: 5vh 0;
+    margin: 1vh 0 3vh 0;
 }
 
 #main_nav ul {
@@ -28,24 +32,32 @@ html, body {
     margin: 0px 8px;
 }
 
-#main-nav a {
+#main_nav a {
     color: #003d8e;
     font-size: 1.4rem;
 
 }
 
 #main-nav a:hover {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
     font-weight: bold;
     text-decoration: none;
+}
+
+.centrar_contenido {
+    margin: 0 auto;
+    width: 100%;
 }
 
 #productos_recomendados {
     font-weight: bold;
     font-family: 'Raleway', sans-serif;
     text-align: center;
-    font-size: 3rem;
+   /* font-size: 2.5rem;*/
     margin: 4vh 0;
+}
+.home_producto_recomendado{
+
 }
 
 #productos_recomendados small {
@@ -57,6 +69,22 @@ html, body {
     margin: 5vh 0;
 }
 
+/*CATEGORIAS DE PRODUCTOS*/
+.nombre_producto_listado_categoria{
+    height: 45px;
+    white-space: break-spaces;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+}
+.product_col_categorias{
+    margin-bottom: 3vh;
+}
+/*FOOTER*/
+footer{
+    margin-top: 10vh;
+}
 div#fondo_footer {
     background: #003d8e;
     padding: 2vh;
@@ -64,18 +92,21 @@ div#fondo_footer {
 }
 
 #copy_row {
-    height: 103px;
-    color: #003d8e;
+    color: #fff;
 }
-
+h4#copy{
+    font-size: 1.2rem;
+}
 
 /*Boostrap override*/
 .carousel-indicators {
     bottom: -20px;
 }
+
 .carousel-indicators .active {
     background-color: #003d8e;
 }
+
 .carousel-indicators li {
     max-width: 15px;
     height: 15px;
@@ -83,4 +114,40 @@ div#fondo_footer {
     background-color: #fff;
     border: solid 1px;
     border-color: #003d8e;
+}
+
+.mapa_contacto {
+    width: 100% !important;
+    border: 0;
+    height: 35vh;
+}
+.direccion_contacto{
+    color: #003d8e;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+/*Producto*/
+.nombre_producto{
+    font-weight: bold;
+    font-size: 30px;
+    color: #000000;
+    letter-spacing: -1.2px;
+    margin-bottom: 22px!important;
+    line-height: 38px;
+}
+.precio{
+
+}
+.cantidad_precio{
+    font-weight: bold;
+    color: #000000;
+    font-size: 35px!important;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    margin-top: 50px;
+}
+.simbolo_precio{
+    margin-right: 8px;
 }
