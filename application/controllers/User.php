@@ -176,15 +176,6 @@ class User extends Base_Controller
 
         echo $this->templates->render('public/perfil', $data);
     }
-    public function subir_propiedad()
-    {
-        if (!$this->ion_auth->logged_in()) {
-            // redirect them to the login page
-            redirect(base_url() . 'User/login');
-        }
-        $data['departamentos'] = $this->Busqueda_model->get_departamentos();
-        $data['menu']='no';
-        echo $this->templates->render('admin/subir_propiedad', $data);
-    }
+
 
 }
