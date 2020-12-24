@@ -15,18 +15,68 @@ if ($producto) {
 }
 
 $ci =& get_instance();
+
+if (file_exists('/home4/ajumbo/public_html/upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '.jpg')) {
+    $imagen_og = base_url() . 'upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '.jpg';
+
+} else {
+    $imagen_og = base_url().'ui/public/imagenes/placeholder.png;';
+}
 ?>
 
 <?php $this->start('css_p') ?>
+<meta name="robots"  content="index,follow"  />
+<?php if ($producto) { ?>
+<meta name="keywords" content="<?php echo $producto->producto_linea.','.$producto->producto_categoria ?>">
+    <meta name="description" content="<?php echo $producto->producto_descripcion; ?>">
+<meta property="og:type"                   content="og:product" />
+<meta property="og:title"                  content="<?php echo $producto->producto_nombre; ?>" />
+<meta property="og:image"                  content="<?php echo $imagen_og; ?>" />
+<meta property="og:description"            content="<?php echo $producto->producto_descripcion; ?>" />
+<meta property="og:url"                    content="<?php echo current_url(); ?>" />
+<meta property="product:price:amount"      content="<?php echo $producto->producto_precio; ?>"/>
+<meta property="product:price:currency"    content="GTQ"/>
 
+    <title><?php echo $producto->producto_nombre; ?></title>
+<?php }else{?>
+    <title>Jumbo</title>
+<?php }?>
 <?php $this->stop() ?>
 
 <?php $this->start('page_content') ?>
 
 
 <section>
-    <div class="container">
-        <?php if ($producto) { ?>
+
+    <?php if ($producto) { ?>
+        <div>
+            <div itemtype="http://schema.org/Product" itemscope>
+                <!--<meta itemprop="mpn" content="<?php /*echo $producto->producto_codigo; */?>" />-->
+                <meta itemprop="name" content="<?php echo $producto->producto_nombre; ?>" />
+                <link itemprop="image" href="<?php echo $imagen_og; ?>" />
+                <meta itemprop="description" content="<?php echo $producto->producto_descripcion; ?>" />
+                <div itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope>
+                    <meta itemprop="availability" content="https://schema.org/InStock" />
+                    <meta itemprop="lowPrice" content="<?php echo $producto->producto_precio; ?>" />
+                    <meta itemprop="highPrice" content="<?php echo $producto->producto_precio; ?>" />
+                    <meta itemprop="price" content="<?php echo $producto->producto_precio; ?>" />
+                    <meta itemprop="priceCurrency" content="GTQ" />
+                </div>
+                <meta itemprop="sku" content="<?php echo $producto->producto_codigo; ?>" />
+                <div itemprop="brand" itemtype="http://schema.org/Brand" itemscope>
+                    <meta itemprop="name" content="<?php echo $producto->producto_marca; ?>" />
+                </div>
+            </div>
+        </div>
+    <?php }?>
+
+
+    <div class="container-fluid">
+
+
+
+        <?php //if ($producto) { ?>
+        <?php if (false) { ?>
             <div class="row">
                 <div class="col">
                     <nav aria-label="breadcrumb">
@@ -44,25 +94,59 @@ $ci =& get_instance();
             </div>
         <?php } ?>
         <div class="row">
-            <div class="col-12 col-md-3">
-                <h3>Busqueda</h3>
+            <div class="col-12 col-md-12 col-xl-2 side_col">
+                <form action="<?php echo base_url()?>productos/buscar" method="post">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Buscar"
+                    <input type="text" class="form-control" placeholder="Buscar" name="keyword"
                            aria-describedby="button-addon2">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
-                <h3>Líneas</h3>
+                </form>
+
+
+                <h3 class="titulo_lineas">Líneas</h3>
                 <ul class="list-group">
                     <?php
                     if ($lineas_productos) {
                         foreach ($lineas_productos->result() as $linea) { ?>
 
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="<?php echo base_url() . 'index.php/productos/linea/' . $linea->producto_linea ?>">
-                                    <?php echo $linea->producto_linea; ?>
-                                </a>
+                            <li class="list-group-item  align-items-center">
+
+                                <?php $categorias = categorias_de_linea($linea->producto_linea);
+                                if ($categorias) {
+                                    ?>
+
+                                    <div class="dropdown">
+                                        <a class=" dropdown-toggle nombre_lineas_menu"
+                                           href="<?php echo base_url() . 'index.php/productos/linea/' . $linea->producto_linea ?>"
+                                           role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                           aria-haspopup="true"
+                                           aria-expanded="false">
+                                            <?php if (linea_tiene_icono($linea->producto_linea)) { ?>
+                                                <img src="<?php echo get_icono_linea($linea->producto_linea); ?>" class="icono_lineas">
+                                            <?php } else { ?>
+                                            <?php } ?>
+
+                                            <?php echo mb_strtolower($linea->producto_linea); ?>
+                                        </a>
+
+                                        <div class="dropdown-menu categorias_dropdown_container nombre_lineas_menu sumenu" aria-labelledby="dropdownMenuLink">
+                                            <?php foreach ($categorias as $categoria) { ?>
+                                                <a class="dropdown-item" href="<?php echo base_url().'index.php/productos/categoria/'.$linea->producto_linea.'/'. $categoria->producto_categoria;?>">
+                                                    <?php echo mb_strtolower($categoria->producto_categoria); ?>
+                                                </a>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+
+                                <?php } else { ?>
+                                    <a href="<?php echo base_url() . 'index.php/productos/linea/' . $linea->producto_linea ?>">
+                                        <?php echo $linea->producto_linea; ?>
+                                    </a>
+                                <?php } ?>
+
 
                                 <!--<span class="badge badge-primary badge-pill">14</span>-->
                             </li>
@@ -71,16 +155,29 @@ $ci =& get_instance();
                     ?>
 
                 </ul>
+                <hr>
+                <?php if($catalogos_list){
+
+                    //print_contenido($catalogos_list);
+                    ?>
+
+                    <ul class="list-group">
+                        <?php foreach ($catalogos_list->result() as $catalogo) { ?>
+                            <li class="list-group-item  align-items-center">
+                                <a href="<?php echo $catalogo->link;?>" class="nombre_lineas_menu" target="_blank"><?php echo $catalogo->titulo;?></a></li>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
 
 
-                <h3>Precio</h3>
+                <!--<h3>Precio</h3>
                 <input type="range" class="custom-range" id="customRange1">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Filtrar</button>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Filtrar</button>-->
 
                 <hr>
             </div>
-            <div class="col-12 col-md-9">
-                <div class="container">
+            <div class="col-12 col-md-12 col-xl-10">
+                <div class="container-fluid">
 
                     <?php //print_contenido($productos->result()); ?>
                     <?php if ($producto) { ?>
@@ -107,7 +204,7 @@ $ci =& get_instance();
 
                                         <?php
                                         //echo '/home/corpjcgd/public_html/new/upload/imagenes_productos/' . $producto->producto_codigo . '/'.$producto->producto_codigo.'.jpg';
-                                        if (file_exists('/home/corpjcgd/public_html/new/upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '.jpg')) { ?>
+                                        if (file_exists('/home4/ajumbo/public_html/upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '.jpg')) { ?>
                                             <div class="carousel-item active">
                                                 <img src="<?php echo base_url() . 'upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '.jpg'; ?>"
                                                      class="d-block w-100"
@@ -124,7 +221,7 @@ $ci =& get_instance();
 
                                         <?php
                                         $x = 2;
-                                        while (file_exists('/home/corpjcgd/public_html/new/upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '_' . $x . '.jpg')) { ?>
+                                        while (file_exists('/home4/ajumbo/public_html/upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '_' . $x . '.jpg')) { ?>
 
                                             <div class="carousel-item ">
                                                 <img src="<?php echo base_url() . 'upload/imagenes_productos/' . $producto->producto_codigo . '/' . $producto->producto_codigo . '_' . $x . '.jpg'; ?>"
@@ -156,7 +253,7 @@ $ci =& get_instance();
                                 <h2 class="nombre_producto"><?php echo $producto->producto_nombre; ?></h2>
                                 <p class="precio">
                                     <span class="cantidad_precio">
-                                        <span class="simbolo_precio">Q</span><?php echo $producto->producto_precio; ?>
+                                        <span class="simbolo_precio">Q</span><?php echo number_format($producto->producto_precio, 2, '.', ','); ?>
                                     </span>
                                 </p>
                                 <p><?php echo $producto->producto_descripcion; ?></p>

@@ -58,7 +58,7 @@ $clave = array(
     </form>
     <hr>
     <div class="alert alert-info" role="alert">
-        Si aun no tiene cuenta se puede registrar acá <a href="<?php echo base_url()?>index.php/User/registro" class="btn btn-info">Registrarse</a>
+        Si aun no tiene cuenta se puede registrar acá <a href="<?php echo base_url()?>User/registro" class="btn btn-info">Registrarse</a>
     </div>
 </div>
 

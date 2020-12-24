@@ -28,4 +28,11 @@ class Home extends Base_Controller
         $data['home_d'] = '';
         echo $this->templates->render('public/homed', $data);
     }
+
+    function error_404 (){
+        $data['home_d'] = '';
+        echo $this->templates->render('errors/html/error_404', $data);
+    }
+
+
 }

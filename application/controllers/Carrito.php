@@ -92,12 +92,12 @@ class Carrito extends Base_Controller
 
         //print_contenido($_POST);
         $productos = $_POST;
-        print_contenido($productos);
+        //print_contenido($productos);
 
 
        // $data['contenido_carrito'] = $this->cart->contents();
         $this->cart->update($productos);
-        print_contenido($this->cart->contents());
+        //print_contenido($this->cart->contents());
         redirect(base_url().'index.php/carrito/ver');
     }
     function formas_pago(){

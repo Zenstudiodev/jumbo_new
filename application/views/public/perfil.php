@@ -34,11 +34,11 @@ $user =$user->row();
             <h2>Perfil</h2>
         </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
         <div class="col-md-6">
-            <a class="btn btn-primary" href="<?php echo base_url()?>user/subir_propiedad">Agregar una propiedad</a>
+            <a class="btn btn-primary" href="<?php /*echo base_url()*/?>user/subir_propiedad">Agregar una propiedad</a>
         </div>
-    </div>
+    </div>-->
     <hr>
     <div class="row">
         <div class="col-12 col-md-3">
@@ -52,6 +52,15 @@ $user =$user->row();
             <hr>
         </div>
         <div class="col-12 col-md-9 ">
+            <?php if (isset($mensaje)) { ?>
+                <div class="alert alert-success alert-block"><a class="close" data-dismiss="alert"
+                                                                href="#">×</a>
+                    <h4 class="alert-heading">Acción exitosa!</h4>
+                    <p>
+                        <?php echo $mensaje; ?>
+                    </p>
+                </div>
+            <?php } ?>
 
             <h2>Pedidos</h2>
             <?php
@@ -70,7 +79,7 @@ $user =$user->row();
                                 <h5 class="card-title">Número pedido <span class="badge badge-primary"><?php echo $pedido->id_pedido; ?></span> </h5>
                                 <div class="card-text">
                                     <p>Total pedido Q.<?php echo $pedido->total_pedido; ?></p>
-                                    <p>Estado pedido: <?php echo $pedido->estado_pedido; ?></p>
+                                    <p>Estado pedido: <span class="badge badge-info"><?php echo $pedido->estado_pedido; ?></span></p>
 
                                 </div>
 

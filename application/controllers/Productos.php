@@ -16,10 +16,19 @@ class Productos extends Base_Controller
         // Modelos
         $this->load->library('email');
         $this->load->model('Productos_model');
+        $this->load->model('Banners_model');
         $this->load->model('User_model');
     }
 
     function index()
+    {
+        $data['productos'] = $this->Productos_model->get_productos_portada();
+        $data['lineas_productos'] = $this->Productos_model->get_lineas();
+        $data['header_banners'] = $this->Banners_model->header_banners_activos();
+        $data['catalogos_list'] = $this->Productos_model->get_catalogos();
+        echo $this->templates->render('public/productos', $data);
+    }
+    function t()
     {
         $data['productos'] = $this->Productos_model->get_productos_recientes();
         $data['lineas_productos'] = $this->Productos_model->get_lineas();
@@ -33,6 +42,8 @@ class Productos extends Base_Controller
 
         $data['producto'] = $this->Productos_model->get_info_producto($codigo_producto);
         $data['lineas_productos'] = $this->Productos_model->get_lineas();
+        $data['catalogos_list'] = $this->Productos_model->get_catalogos();
+
 
         if ($this->session->flashdata('mensaje')) {
             $data['mensaje'] = $this->session->flashdata('mensaje');
@@ -56,15 +67,19 @@ class Productos extends Base_Controller
         $linea = $this->uri->segment(3);
         $categoria = urldecode($this->uri->segment(4));
 
+        $data['linea'] = $linea;
+        $data['categoria'] =$categoria;
 
         $data['productos_categoria'] = $this->Productos_model->get_productos_categoria($linea, $categoria);
         $data['lineas_productos'] = $this->Productos_model->get_lineas();
+        $data['catalogos_list'] = $this->Productos_model->get_catalogos();
         echo $this->templates->render('public/productos_categoria', $data);
 
     }
 
     function crear_predido()
     {
+
         //comprobamos que este logueado
         if (!$this->ion_auth->logged_in()) {
             // redirect them to the login page
@@ -72,9 +87,13 @@ class Productos extends Base_Controller
         }
         //obtenemos datos de usuario
         $user_id = $this->ion_auth->get_user_id();
-        //$user_data = $this->User_model->get_user_by_id($user_id);
-        //$user_data = $user_data->row();
+        $user_data = $this->User_model->get_user_by_id($user_id);
+        $user_data = $user_data->row();
+        $nombre = $user_data->first_name.' '.$user_data->last_name;
 
+       /* print_contenido($user_data);
+        print_contenido($_POST);*/
+        //exit();
         //obtenemos datos de carrito
         $productos_pedido = $this->cart->contents();
         $total_pedido = $this->cart->total();
@@ -107,24 +126,65 @@ class Productos extends Base_Controller
                 'precio_producto' => $producto['price'],
             );
             $this->Productos_model->guardar_producto_pedido($producto_pedido);
-            //print_contenido($producto_pedido);
+
+
 
         }
+        //guardamos direccion de pedido
+        $direccion_pedido = array(
+            'pedido_id' => $pedido_id,
+            'direccion_pais' => $this->input->post('pais_envio'),
+            'direccion_departamento' => $this->input->post('departamento_envio'),
+            'direccion_municipio' => $this->input->post('municipio_envio'),
+            'direccion_zona' => $this->input->post('zona_envio'),
+            'direccion_direccion' => $this->input->post('direccion_envio'),
+            'direccion_recibe' => $this->input->post('recibe_envio'),
+            'direccion_telefono' => $this->input->post('telefono_envio'),
+            'facturacion_nombre' => $this->input->post('facturacion_nombre'),
+            'facturacion_nit' => $this->input->post('facturacion_nit'),
+            'facturacion_direccion' => $this->input->post('facturacion_direccion'),
+        );
+        $this->Productos_model->guardar_direcicon_pedido($direccion_pedido);
+        //print_contenido($producto_pedido);
         //notificamos pedido
 
+
+
+
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+
         $this->email->from('info@corporacionjumbo.com', 'JUMBO');
-        $this->email->to('csamayoa@zenstudiogt.com');
-        //$this->email->cc('another@another-example.com');
-        //$this->email->bcc('them@their-example.com');
+        $this->email->to('ventasonline@ajumbo.com ');
+        $this->email->cc('ventas@ajumbo.com');
+        $this->email->bcc('csamayoa@zenstudiogt.com');
         $this->email->subject('Pedido');
-        $this->email->message('Se genero un pedido');
+
+
+        $message = '<html><body>';
+        $message .= '<img src="'.base_url().'/ui/public/imagenes/logo.png" alt="JUMBO" />';
+        $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+        $message .= "<tr style='background: #eee;'><td>SE GENERO UN PEDIDO</td></tr>";
+        $message .= "<tr style='background: #eee;'><td><strong>Nombre del cliente:</strong> </td><td>" .strip_tags($nombre) ."</td></tr>";
+        $message .= "<tr><td><strong>Pedido</strong> </td><td>" . strip_tags($pedido_id) . "</td></tr>";
+        $message .= "</table>";
+        $message .= "</body></html>";
+
+
+        $this->email->message($message);
+
         $this->email->send();
+
+        if ( ! $this->email->send())
+        {
+            // Generate error
+        }
 
 
         //vaciamos carrito
         $this->cart->destroy();
 
-        redirect(base_url() . 'index.php/carrito/ver');
+        redirect(base_url() . 'index.php/user/perfil');
 
     }
 
@@ -152,9 +212,15 @@ class Productos extends Base_Controller
         }
         //print_contenido($productos_pedido);
 
+        //direccion de pedido
+        $direccion_pedido = $this->Productos_model->get_direccion_pedido($pedido_id);
+        if ($direccion_pedido) {
+            $direccion_pedido = $direccion_pedido->row();
+        }
         //vista de pago del pedido
         $data['datos_pedido'] = $datos_pedido;
         $data['productos_pedido'] = $productos_pedido;
+        $data['direccion_pedido'] = $direccion_pedido;
         echo $this->templates->render('public/pagar_pedido', $data);
 
 
@@ -184,6 +250,7 @@ class Productos extends Base_Controller
         $numero_tarjeta = $this->input->post('numero_tarjeta');
         $expirationMonth = $this->input->post('mes_vencimiento_tarjeta');
         $expirationYear = $this->input->post('ano_vencimiento_tarjeta');
+        $cvv = $this->input->post('cvv_tarjeta');
 
 
         $pedido_id = $this->input->post('pedido_id');
@@ -220,6 +287,7 @@ class Productos extends Base_Controller
         $card->accountNumber = $numero_tarjeta;
         $card->expirationMonth = $expirationMonth;
         $card->expirationYear = $expirationYear;
+        $card->cvNumber = $cvv;
         $request->card = $card;
 
 
@@ -372,6 +440,13 @@ class Productos extends Base_Controller
             if ($data['tipo_anuncio'] == 'vip') {
                 redirect(base_url() . 'cliente/publicar_carro_vip');
             }*/
+
+            //pasar pedido a pagado
+            $this->session->set_flashdata('mensaje', 'el pedido se pago correctamente');
+            $this->Productos_model->pasar_pedido_a_pagado($pedido_id);
+            redirect(base_url() . 'index.php/user/perfil');
+
+
             //redirect(base_url() . 'cliente/perfil');
             //redirect(base_url() . 'cliente/publicar_carro');
             //echo 'guardar numero de transaccion en base de datos';
@@ -403,6 +478,29 @@ class Productos extends Base_Controller
         */
         // This section will show all the reply fields.
         // print("\nCAPTRUE RESPONSE: " . print_contenido($captureReply, true));
+
+
+    }
+
+    function buscar(){
+
+        $keyword= $this->input->post('keyword');
+        if($keyword){
+
+            $productos = $this->Productos_model->buscar($keyword);
+            $data['keyword'] = $keyword;
+            $data['productos_categoria'] = $productos;
+            $data['lineas_productos'] = $this->Productos_model->get_lineas();
+            $data['catalogos_list'] = $this->Productos_model->get_catalogos();
+            //print_contenido($productos->result());
+            echo $this->templates->render('public/productos_categoria', $data);
+        }else{
+            redirect(base_url());
+        }
+
+
+
+
 
 
     }

@@ -31,7 +31,7 @@ class Empresa extends Base_Controller
         echo $this->templates->render('public/contacto', $data);
     }
     function enviar_formulario_contacto(){
-        print_contenido($_POST);
+       // print_contenido($_POST);
 
 
         //comprobamos que exista post
@@ -42,8 +42,13 @@ class Empresa extends Base_Controller
             $mensaje= $this->input->post('mensaje_contacto');
 
 
+            $config['mailtype'] = 'html';
+
+            $this->email->initialize($config);
+
             $this->email->from('info@ajumbo.com', 'JUMBO');
-            $this->email->to('csamayoa@zenstudiogt.com');
+            $this->email->to('ventasonline@ajumbo.com, ventas@ajumbo.com');
+            //$this->email->cc('ventas@ajumbo.com');
             $this->email->bcc('csamayoa@zenstudiogt.com');
 
             $this->email->subject('FORMULARIO DE CONTACO SITIO WEB');
@@ -63,10 +68,15 @@ class Empresa extends Base_Controller
             $this->email->send();
 
 
-            echo'send';
+            //echo'send';
+            redirect(base_url().'Empresa/contacto');
         }else{
             //redirigir al home
             redirect(base_url().'/index.php/Empresa/contacto');
         }
+    }
+    function politicas(){
+
+        echo $this->templates->render('public/politicas');
     }
 }

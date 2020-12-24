@@ -164,12 +164,4 @@ $confirmar_clave = array(
 
 <?php $this->stop() ?>
 <?php $this->start('js_p') ?>
-<script>
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6Le2pcMUAAAAAGezpReJseqnBAijwYanQXpmQoS7', {action: 'registro'}).then(function(token) {
-            //console.log(token);
-            $("#token").val(token);
-        });
-    });
-</script>
 <?php $this->stop() ?>

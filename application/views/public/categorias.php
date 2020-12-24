@@ -12,7 +12,9 @@ $this->layout('public/public_master');
 ?>
 
 <?php $this->start('css_p') ?>
+<meta name="keywords" content="<?php echo $linea.','.$categoria;  ?>">
 
+<title><?php echo $linea.','.$categoria;  ?></title>
 <?php $this->stop() ?>
 
 <?php $this->start('page_content') ?>
