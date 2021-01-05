@@ -94,7 +94,7 @@ $ci =& get_instance();
         <form method="post" action="<?php echo base_url() ?>index.php/productos/procesar_pago">
 
             <div class="row">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-12">
                     <div class="card">
                         <div class="card-header">
                             <h3>Direccion de pedido</h3>
@@ -135,7 +135,7 @@ $ci =& get_instance();
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
+                <!--<div class="col-12 col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <h3>Datos de pago</h3>
@@ -145,7 +145,7 @@ $ci =& get_instance();
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="numero_tarjeta">Número de tarjeta  <img src="<?php echo base_url().'upload/imagenes_sitio/'; ?>iconos_tarjetas.png"></label>
+                                        <label for="numero_tarjeta">Número de tarjeta  <img src="<?php /*echo base_url().'upload/imagenes_sitio/'; */?>iconos_tarjetas.png"></label>
                                         <input type="number" class="form-control" id="numero_tarjeta"
                                                name="numero_tarjeta" required>
                                     </div>
@@ -201,8 +201,7 @@ $ci =& get_instance();
 
                         </div>
                     </div>
-
-                </div>
+                </div>-->
                 <div class="col-12 col-md-6">
 
                 </div>

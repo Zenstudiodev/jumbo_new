@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="jumbo_host">
+  <component name="PublishConfigData" autoUpload="Always" serverName="ajumbohost">
     <serverData>
-      <paths name="jumbo_host">
+      <paths name="ajumbohost">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />

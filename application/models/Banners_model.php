@@ -101,10 +101,10 @@ class Banners_model extends CI_Model
         );
         $this->db->insert('banners_header', $datos);
     }
-    function borrar_banner_header($id_banner){
-        $this->db->where('id_bh', $id_banner);
-        $this->db->delete('banners_header');
-    }
+        function borrar_banner_header($id_banner){
+            $this->db->where('id_bh', $id_banner);
+            $this->db->delete('banners_header');
+        }
 
     /*BANNER BUSQUEDA*/
     function guardar_click_banner_busqueda($banner_id){
