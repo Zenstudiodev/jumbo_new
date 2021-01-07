@@ -23,6 +23,7 @@ $estado_pedido_select = array(
     'required' => 'required'
 );
 $estado_pedido_options = array(
+    'revision' => 'Revisión',
     'pendiente_pago' => 'Pendiente de pago',
     'pagado' => 'Pagado',
     'bodega' => 'En bodega',
@@ -176,6 +177,32 @@ $estado_pedido_options = array(
                 </tbody>
             </table>
         </div>
+        <?php if($datos_comprobante){ ?>
+            <?php //print_contenido($datos_envio); ?>
+            <div class="row">
+                <div class="col">
+                    <h2>Comprobantes de pago</h2>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <td>No. Comprobante</td>
+                            <td>Fecha</td>
+                        </tr>
+                        <?php foreach ($datos_comprobante->result() as $comprobante) { ?>
+                            <tr>
+                                <td><?php echo $comprobante->no_comprobante; ?></td>
+                                <td><?php echo $comprobante->fecha_comprobante; ?></td>
+                            </tr>
+                        <?php } ?>
+                    </table>
+                </div>
+            </div>
+            <hr>
+        <?php }?>
+
+
         <div class="row">
             <div class="col">
                 <h2>Actualizar pedido</h2>

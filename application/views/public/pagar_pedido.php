@@ -91,7 +91,8 @@ $ci =& get_instance();
             </div>
         </div>
         <hr>
-        <form method="post" action="<?php echo base_url() ?>index.php/productos/procesar_pago">
+        <form method="post" action="<?php echo base_url() ?>index.php/productos/guardar_comprobante_pago">
+       <!-- <form method="post" action="<?php /*echo base_url() */?>index.php/productos/procesar_pago">-->
 
             <div class="row">
                 <div class="col-12 col-md-12">
@@ -250,11 +251,20 @@ $ci =& get_instance();
                 </div>
             </div>
             <hr>
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="numero_tarjeta">No. comporbante</label>
+                        <input type="text" class="form-control" id="no_comprobante" name="no_comprobante" required>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <input type="hidden" id="deviceFingerprintID" name="deviceFingerprintID">
+                    <input type="hidden" name="user_id" value="<?php echo $datos_pedido->user_id_pedido; ?>">
                     <input type="hidden" name="pedido_id" value="<?php echo $datos_pedido->id_pedido; ?>">
-                    <button type="submit" class="btn btn-success btn-lg">Pagar</button>
+                    <button type="submit" class="btn btn-success btn-lg">Enviar comprobante de pago</button>
                 </div>
             </div>
         </form>
@@ -268,6 +278,10 @@ $ci =& get_instance();
 <script src="<?php echo base_url() ?>ui/public/js/cybs_devicefingerprint.js"></script>
 
 <script>
+
+
+
+
     var sessionID;
     sessionID = cybs_dfprofiler("visanetgt_almacenjumbo_acct", "test");
    // sessionID = cybs_dfprofiler("visanetgt_almacenjumbo_acct", "live");

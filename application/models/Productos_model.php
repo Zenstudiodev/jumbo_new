@@ -207,6 +207,13 @@ class Productos_model extends CI_Model
         $this->db->where('id_pedido', $pedido_id);
         $query = $this->db->update('pedidos', $datos);
     }
+    public function pasar_pedido_a_revision($pedido_id){
+        $datos = array(
+            'estado_pedido' => 'revision',
+        );
+        $this->db->where('id_pedido', $pedido_id);
+        $query = $this->db->update('pedidos', $datos);
+    }
     public function guardar_direcicon_pedido($data){
 
         $direccion_pedido = array(
@@ -300,5 +307,27 @@ class Productos_model extends CI_Model
         if ($query->num_rows() > 0) return $query;
         else return false;
 
+    }
+
+    //Pagos
+    function guardar_comprobante_pago($pago){
+        $fecha = New DateTime();
+        $datos_pedido = array(
+            'no_comprobante' => $pago['no_comprobante'],
+            'id_pedido_comprobante' => $pago['id_pedido_comprobante'],
+            'id_usuario_comprobante' => $pago['id_usuario_comprobante'],
+            'fecha_comprobante' =>  $fecha->format('Y-m-d'),
+        );
+        $this->db->insert('comprobante_pago', $datos_pedido);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
+    function get_comporbante_pago_by_pedido_id($pedido_id){
+        $this->db->where('id_pedido_comprobante', $pedido_id);
+        $this->db->from('comprobante_pago');
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) return $query;
+        else return false;
     }
 }

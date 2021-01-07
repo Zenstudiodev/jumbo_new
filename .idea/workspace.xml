@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b5ccd7-e2e2-483f-bb47-649c5baddc68" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Banners_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Banners_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Productos.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Productos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Productos_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Productos_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/revisar_pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/revisar_pedido.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/public/pagar_pedido.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/public/pagar_pedido.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/components/jquery/" />
@@ -77,25 +78,23 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="ajumbo_new: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="ajumbo_new@192.185.58.95" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="ajumbo_new: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="productos: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="admin_master.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_master.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="49" column="34" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="430" column="35" selection-start-line="430" selection-start-column="20" selection-end-line="430" selection-end-column="35" />
+            <state relative-caret-position="255">
+              <caret line="82" column="32" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="32" />
               <folding>
                 <element signature="e#6#94#0#PHP" />
                 <element signature="n#__construct#0;n#Admin#0;n#!!top" />
@@ -104,7 +103,6 @@
                 <element signature="e#913#2502#0#PHP" />
                 <element signature="e#1138#2221#0#PHP" />
                 <element signature="n#listado_pedidos#0;n#Admin#0;n#!!top" />
-                <element signature="n#revisar_pedido#0;n#Admin#0;n#!!top" />
                 <element signature="e#2984#3261#0#PHP" />
                 <element signature="n#actualizar_pedido#0;n#Admin#0;n#!!top" />
                 <element signature="e#3518#3620#0#PHP" />
@@ -141,11 +139,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Productos_model.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Productos_model.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/Productos_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="292" column="5" lean-forward="true" selection-start-line="292" selection-start-column="5" selection-end-line="292" selection-end-column="5" />
+            <state relative-caret-position="306">
+              <caret line="162" column="5" lean-forward="true" selection-start-line="150" selection-start-column="4" selection-end-line="162" selection-end-column="5" />
               <folding>
                 <element signature="n#__construct#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#limpiar_tabla#0;n#Productos_model#0;n#!!top" />
@@ -169,33 +167,37 @@
                 <element signature="e#5024#5141#0#PHP" />
                 <element signature="n#borrar_icono_linea#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#guardar_pedido#0;n#Productos_model#0;n#!!top" />
-                <element signature="e#5470#5644#0#PHP" />
                 <element signature="n#guardar_producto_pedido#0;n#Productos_model#0;n#!!top" />
                 <element signature="e#5856#6222#0#PHP" />
                 <element signature="n#get_pedidos_user_id#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#get_pedido_by_id_user_id#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#get_productos_pedido#0;n#Productos_model#0;n#!!top" />
-                <element signature="n#pasar_pedido_a_pagado#0;n#Productos_model#0;n#!!top" />
                 <element signature="e#7527#7584#0#PHP" />
                 <element signature="n#guardar_direcicon_pedido#0;n#Productos_model#0;n#!!top" />
                 <element signature="e#7780#8486#0#PHP" />
                 <element signature="n#get_direccion_pedido#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#get_pedidos#0;n#Productos_model#0;n#!!top" />
-                <element signature="n#get_pedido_by_id#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#actualizar_pedido#0;n#Productos_model#0;n#!!top" />
                 <element signature="e#9593#9664#0#PHP" />
                 <element signature="n#get_catalogos#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#crear_catalogo#0;n#Productos_model#0;n#!!top" />
+                <element signature="n#catalogo_data#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#actualizar_catalogo#0;n#Productos_model#0;n#!!top" />
+                <element signature="n#borrar_catalogo#0;n#Productos_model#0;n#!!top" />
                 <element signature="n#buscar#0;n#Productos_model#0;n#!!top" />
+                <element signature="n#guardar_comprobante_pago#0;n#Productos_model#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="pedidos" pinned="false" current-in-tab="false">
+        <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/pedidos">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="admin_catalogos.php" pinned="false" current-in-tab="false">
@@ -207,67 +209,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Banners_model.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/Banners_model.php">
+      <file leaf-file-name="public_master.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/public/public_master.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
-              <folding>
-                <element signature="n#__construct#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#header_banners_activos#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#header_banners_feria_activos#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#banneers_activos#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#banners#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#banners_header#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#banner_data#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#banner_header_data#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#actualizar_banners#0;n#Banners_model#0;n#!!top" />
-                <element signature="e#1949#2236#0#PHP" />
-                <element signature="n#actualizar_banners_header#0;n#Banners_model#0;n#!!top" />
-                <element signature="e#2424#2729#0#PHP" />
-                <element signature="n#crear_banners_header#0;n#Banners_model#0;n#!!top" />
-                <element signature="e#2915#3220#0#PHP" />
-                <element signature="n#borrar_banner_header#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#guardar_click_banner_busqueda#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#guardar_vista_banner_busqueda#0;n#Banners_model#0;n#!!top" />
-                <element signature="n#guardar_click_banner_header#0;n#Banners_model#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="3791">
+              <caret line="236" column="7" lean-forward="true" selection-start-line="236" selection-start-column="7" selection-end-line="236" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pagar_pedido.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/public/pagar_pedido.php">
+      <file leaf-file-name="productos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/public/productos.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comprobante_pago" pinned="false" current-in-tab="false">
-        <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/comprobante_pago">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_banners_header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_banners_header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="56" column="70" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_crear_banner_header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/admin_crear_banner_header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="94" selection-start-line="33" selection-start-column="94" selection-end-line="33" selection-end-column="94" />
+            <state relative-caret-position="468">
+              <caret line="78" column="14" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="78" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -318,7 +273,6 @@
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/controllers/Home.php" />
         <option value="$PROJECT_DIR$/application/views/errors/html/error_404.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Productos.php" />
         <option value="$PROJECT_DIR$/application/views/public/producto.php" />
         <option value="$PROJECT_DIR$/application/views/public/productos_categoria.php" />
         <option value="$PROJECT_DIR$/jumbo_sw.js" />
@@ -329,12 +283,14 @@
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/application/views/admin/admin_master.php" />
         <option value="$PROJECT_DIR$/application/views/admin/admin_crear_banner_header.php" />
-        <option value="$PROJECT_DIR$/application/models/Productos_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
         <option value="$PROJECT_DIR$/application/views/admin/admin_catalogos.php" />
         <option value="$PROJECT_DIR$/application/views/admin/admin_banners_header.php" />
         <option value="$PROJECT_DIR$/application/models/Banners_model.php" />
         <option value="$PROJECT_DIR$/application/views/public/pagar_pedido.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Productos.php" />
+        <option value="$PROJECT_DIR$/application/models/Productos_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/revisar_pedido.php" />
       </list>
     </option>
   </component>
@@ -384,10 +340,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="176" />
-    <option name="y" value="179" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectId" id="1knAgfvB10U7Pf992SItfUlkPgq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -406,7 +362,20 @@
             <path>
               <item name="jumbo_new" type="b2602c69:ProjectViewProjectNode" />
               <item name="jumbo_new" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jumbo_new" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jumbo_new" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jumbo_new" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jumbo_new" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -420,7 +389,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="pagar_pedido&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/pagar_pedido.php&#10;catalogos&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_catalogos.php&#10;actualizar_catalogo&#9;null&#9;null&#10;actualizar_banners_header&#9;null&#9;null&#10;banners_header&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_banners_header.php&#10;admin_crear_banner_header&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_crear_banner_header.php&#10;public_master&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/public_master.php&#10;productos_categoria&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/productos_categoria.php&#10;producto&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/producto.php&#10;ver_producto&#9;null&#9;null&#10;importar_productos&#9;null&#9;null&#10;registro&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/registro.php&#10;Productos_model&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/models/Productos_model.php&#10;Banners_model&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/models/Banners_model.php&#10;admin_catalogos&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_catalogos.php&#10;admin_banners_header&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_banners_header.php&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;productos&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/productos.php&#10;carrito&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/carrito.php&#10;guardar_direcicon_pedido&#9;null&#9;null&#10;asignar_producto_portada&#9;null&#9;null&#10;productos_portada&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/admin/productos_portada.php&#10;get_productos_categoria&#9;null&#9;null&#10;get_productos_recientes&#9;null&#9;null&#10;nombre_de_producto_por_codigo&#9;null&#9;null&#10;get_productos_recomendados_home&#9;null&#9;null&#10;is_admin&#9;null&#9;null&#10;perfil&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/perfil.php&#10;ver&#9;null&#9;null&#10;get_categorias_linea&#9;null&#9;null&#10;login&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/login.php&#10;home&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/home.php" />
+    <property name="SearchEverywhereHistoryKey" value="revisar_pedido&#9;null&#9;null&#10;pasar_pedido_a_pagado&#9;null&#9;null&#10;guardar_comprobante_pago&#9;null&#9;null&#10;public_master&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/public_master.php&#10;pagar_pedido&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/pagar_pedido.php&#10;procesar_pago&#9;null&#9;null&#10;catalogos&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_catalogos.php&#10;actualizar_catalogo&#9;null&#9;null&#10;actualizar_banners_header&#9;null&#9;null&#10;banners_header&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_banners_header.php&#10;admin_crear_banner_header&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_crear_banner_header.php&#10;productos_categoria&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/productos_categoria.php&#10;producto&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/producto.php&#10;ver_producto&#9;null&#9;null&#10;importar_productos&#9;null&#9;null&#10;registro&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/registro.php&#10;Productos_model&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/models/Productos_model.php&#10;Banners_model&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/models/Banners_model.php&#10;admin_catalogos&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_catalogos.php&#10;admin_banners_header&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/admin/admin_banners_header.php&#10;data&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;productos&#9;FILE&#9;file://D:/PhpstormProjects/jumbo_new/application/views/public/productos.php&#10;carrito&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/carrito.php&#10;guardar_direcicon_pedido&#9;null&#9;null&#10;asignar_producto_portada&#9;null&#9;null&#10;productos_portada&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/admin/productos_portada.php&#10;get_productos_categoria&#9;null&#9;null&#10;get_productos_recientes&#9;null&#9;null&#10;nombre_de_producto_por_codigo&#9;null&#9;null&#10;get_productos_recomendados_home&#9;null&#9;null&#10;is_admin&#9;null&#9;null&#10;perfil&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/perfil.php&#10;ver&#9;null&#9;null&#10;get_categorias_linea&#9;null&#9;null&#10;login&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/login.php&#10;home&#9;FILE&#9;file://C:/Users/Latios-ws/PhpstormProjects/jumbo_new/application/views/public/home.php" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -563,7 +532,8 @@
       <workItem from="1609362004169" duration="1195000" />
       <workItem from="1609790908933" duration="188000" />
       <workItem from="1609876687237" duration="863000" />
-      <workItem from="1609879922200" duration="1902000" />
+      <workItem from="1609879922200" duration="3817000" />
+      <workItem from="1609907927555" duration="15411000" />
     </task>
     <task id="LOCAL-00001" summary="productos&#10;categorias&#10;vista mobil&#10;login&#10;carrito&#10;pedidos">
       <created>1592505023642</created>
@@ -579,11 +549,18 @@
       <option name="project" value="LOCAL" />
       <updated>1592544671414</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Banners">
+      <created>1609886047390</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1609886047391</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31555000" />
+    <option name="totallyTimeSpent" value="48881000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -592,14 +569,15 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="File Transfer" order="7" weight="0.32897604" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
       <window_info anchor="right" id="Remote Host" order="3" weight="0.32995737" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="7" visible="true" weight="0.3267974" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1380597" />
+      <window_info anchor="bottom" id="Database Console" order="7" visible="true" weight="0.3267974" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13965885" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.32995737" />
+      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.32995737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -609,7 +587,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="File Transfer" order="7" weight="0.32897604" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
@@ -622,7 +599,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="productos&#10;categorias&#10;vista mobil&#10;login&#10;carrito&#10;pedidos" />
     <MESSAGE value="pedido&#10;pago de pedido&#10;conexion con visa&#10;procesamiento de pago" />
-    <option name="LAST_COMMIT_MESSAGE" value="pedido&#10;pago de pedido&#10;conexion con visa&#10;procesamiento de pago" />
+    <MESSAGE value="Banners" />
+    <option name="LAST_COMMIT_MESSAGE" value="Banners" />
   </component>
   <component name="WindowStateProjectService">
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1606408662030">
@@ -631,23 +609,6 @@
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.-193.1080.1880@0.0.1920.1040" timestamp="1606408662030" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ui/public/css/main.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/public/producto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4879">
-          <caret line="292" selection-start-line="292" selection-end-line="292" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/public/productos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3349">
-          <caret line="202" lean-forward="true" selection-start-line="13" selection-end-line="202" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/public/public_master.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3859">
@@ -769,13 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/public/productos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="71" column="116" selection-start-line="71" selection-start-column="116" selection-end-line="71" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/errors/html/error_404.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -788,13 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="15" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/public/public_master.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="155" column="46" selection-start-line="155" selection-start-column="46" selection-end-line="155" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -823,13 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Productos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="484" column="22" selection-start-line="484" selection-start-column="22" selection-end-line="484" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -878,10 +818,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_banners_header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="56" column="70" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_crear_banner_header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="94" selection-start-line="33" selection-start-column="94" selection-end-line="33" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Banners_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_catalogos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="58" column="122" selection-start-line="58" selection-start-column="122" selection-end-line="58" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/pagos_pedidos.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/pagos_pedidos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Productos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="520" column="55" selection-start-line="520" selection-start-column="55" selection-end-line="520" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#procesar_pago#0;n#Productos#0;n#!!top" />
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#buscar#0;n#Productos#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/comprobante_pago">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/public/public_master.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3791">
+          <caret line="236" column="7" lean-forward="true" selection-start-line="236" selection-start-column="7" selection-end-line="236" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/public/productos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="78" column="14" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="78" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/pedidos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/public/pagar_pedido.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="262" column="33" selection-start-line="262" selection-start-column="33" selection-end-line="262" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/revisar_pedido.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="195" column="78" selection-start-line="195" selection-start-column="78" selection-end-line="195" selection-end-column="78" />
+          <folding>
+            <element signature="e#2906#5037#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="430" column="35" selection-start-line="430" selection-start-column="20" selection-end-line="430" selection-end-column="35" />
+        <state relative-caret-position="255">
+          <caret line="82" column="32" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="32" />
           <folding>
             <element signature="e#6#94#0#PHP" />
             <element signature="n#__construct#0;n#Admin#0;n#!!top" />
@@ -890,7 +936,6 @@
             <element signature="e#913#2502#0#PHP" />
             <element signature="e#1138#2221#0#PHP" />
             <element signature="n#listado_pedidos#0;n#Admin#0;n#!!top" />
-            <element signature="n#revisar_pedido#0;n#Admin#0;n#!!top" />
             <element signature="e#2984#3261#0#PHP" />
             <element signature="n#actualizar_pedido#0;n#Admin#0;n#!!top" />
             <element signature="e#3518#3620#0#PHP" />
@@ -926,52 +971,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_catalogos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="58" column="122" selection-start-line="58" selection-start-column="122" selection-end-line="58" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_crear_banner_header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="94" selection-start-line="33" selection-start-column="94" selection-end-line="33" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/admin_banners_header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="56" column="70" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/pedidos">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/public/pagar_pedido.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://0cc76c2d-8212-42e6-8952-9b8f0e577066/schema/ajumbo_new/table/comprobante_pago">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Productos_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="292" column="5" lean-forward="true" selection-start-line="292" selection-start-column="5" selection-end-line="292" selection-end-column="5" />
+        <state relative-caret-position="306">
+          <caret line="162" column="5" lean-forward="true" selection-start-line="150" selection-start-column="4" selection-end-line="162" selection-end-column="5" />
           <folding>
             <element signature="n#__construct#0;n#Productos_model#0;n#!!top" />
             <element signature="n#limpiar_tabla#0;n#Productos_model#0;n#!!top" />
@@ -995,55 +998,25 @@
             <element signature="e#5024#5141#0#PHP" />
             <element signature="n#borrar_icono_linea#0;n#Productos_model#0;n#!!top" />
             <element signature="n#guardar_pedido#0;n#Productos_model#0;n#!!top" />
-            <element signature="e#5470#5644#0#PHP" />
             <element signature="n#guardar_producto_pedido#0;n#Productos_model#0;n#!!top" />
             <element signature="e#5856#6222#0#PHP" />
             <element signature="n#get_pedidos_user_id#0;n#Productos_model#0;n#!!top" />
             <element signature="n#get_pedido_by_id_user_id#0;n#Productos_model#0;n#!!top" />
             <element signature="n#get_productos_pedido#0;n#Productos_model#0;n#!!top" />
-            <element signature="n#pasar_pedido_a_pagado#0;n#Productos_model#0;n#!!top" />
             <element signature="e#7527#7584#0#PHP" />
             <element signature="n#guardar_direcicon_pedido#0;n#Productos_model#0;n#!!top" />
             <element signature="e#7780#8486#0#PHP" />
             <element signature="n#get_direccion_pedido#0;n#Productos_model#0;n#!!top" />
             <element signature="n#get_pedidos#0;n#Productos_model#0;n#!!top" />
-            <element signature="n#get_pedido_by_id#0;n#Productos_model#0;n#!!top" />
             <element signature="n#actualizar_pedido#0;n#Productos_model#0;n#!!top" />
             <element signature="e#9593#9664#0#PHP" />
             <element signature="n#get_catalogos#0;n#Productos_model#0;n#!!top" />
             <element signature="n#crear_catalogo#0;n#Productos_model#0;n#!!top" />
+            <element signature="n#catalogo_data#0;n#Productos_model#0;n#!!top" />
             <element signature="n#actualizar_catalogo#0;n#Productos_model#0;n#!!top" />
+            <element signature="n#borrar_catalogo#0;n#Productos_model#0;n#!!top" />
             <element signature="n#buscar#0;n#Productos_model#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Banners_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
-          <folding>
-            <element signature="n#__construct#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#header_banners_activos#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#header_banners_feria_activos#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#banneers_activos#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#banners#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#banners_header#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#banner_data#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#banner_header_data#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#actualizar_banners#0;n#Banners_model#0;n#!!top" />
-            <element signature="e#1949#2236#0#PHP" />
-            <element signature="n#actualizar_banners_header#0;n#Banners_model#0;n#!!top" />
-            <element signature="e#2424#2729#0#PHP" />
-            <element signature="n#crear_banners_header#0;n#Banners_model#0;n#!!top" />
-            <element signature="e#2915#3220#0#PHP" />
-            <element signature="n#borrar_banner_header#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#guardar_click_banner_busqueda#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#guardar_vista_banner_busqueda#0;n#Banners_model#0;n#!!top" />
-            <element signature="n#guardar_click_banner_header#0;n#Banners_model#0;n#!!top" />
+            <element signature="n#guardar_comprobante_pago#0;n#Productos_model#0;n#!!top" />
           </folding>
         </state>
       </provider>

@@ -221,6 +221,7 @@ class Productos extends Base_Controller
         $data['datos_pedido'] = $datos_pedido;
         $data['productos_pedido'] = $productos_pedido;
         $data['direccion_pedido'] = $direccion_pedido;
+        $data['user_id'] = $user_id;
         echo $this->templates->render('public/pagar_pedido', $data);
 
 
@@ -481,7 +482,47 @@ class Productos extends Base_Controller
 
 
     }
+    function guardar_comprobante_pago(){
+        $no_comprobante = $this->input->post('no_comprobante');
+        $id_pedido = $this->input->post('pedido_id');
+        $user_id = $this->input->post('user_id');
 
+        $datos_pedido = array(
+            'no_comprobante' => $no_comprobante,
+            'id_pedido_comprobante' => $id_pedido,
+            'id_usuario_comprobante' => $user_id,
+        );
+
+        $id_comprobante = $this->Productos_model->guardar_comprobante_pago($datos_pedido);
+        // notificacion de envio de coprobante
+
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+
+        $this->email->from('info@corporacionjumbo.com', 'JUMBO');
+        $this->email->to('ventasonline@ajumbo.com ');
+        $this->email->cc('ventas@ajumbo.com');
+        $this->email->bcc('csamayoa@zenstudiogt.com');
+        $this->email->subject('Envio comprobante de pago');
+
+
+        $message = '<html><body>';
+        $message .= '<img src="'.base_url().'/ui/public/imagenes/logo.png" alt="JUMBO" />';
+        $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+        $message .= "<tr style='background: #eee;'><td>SE ENVIÓ UN COMPROBANTE DE PAGO</td></tr>";
+        $message .= "<tr><td><strong>Pedido</strong> </td><td>" . strip_tags($id_pedido) . "</td></tr>";
+        $message .= "</table>";
+        $message .= "</body></html>";
+
+        $this->email->message($message);
+
+        $this->email->send();
+
+        $this->Productos_model->pasar_pedido_a_revision($datos_pedido['id_pedido_comprobante']);
+        redirect(base_url().'User/perfil');
+
+
+    }
     function buscar(){
 
         $keyword= $this->input->post('keyword');

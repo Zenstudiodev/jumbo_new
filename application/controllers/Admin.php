@@ -80,6 +80,7 @@ class Admin extends  Base_Controller
         $id_pedido = $this->uri->segment(3);
         $data['datos_pedido'] = $this->Productos_model->get_pedido_by_id($id_pedido);
         $data['datos_envio'] = $this->Productos_model->get_direccion_pedido($id_pedido);
+        $data['datos_comprobante'] = $this->Productos_model->get_comporbante_pago_by_pedido_id($id_pedido);
         if($data['datos_pedido']){
             $pedido = $data['datos_pedido']->row();
             $data['cliente'] = $this->User_model->get_user_by_id($pedido->user_id_pedido);
